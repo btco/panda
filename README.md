@@ -1,13 +1,15 @@
 # 8 Bit Panda
-A panda platformer game for the [TIC-80](https://tic.computer) fantasy
-console.
+A retro-style panda platformer game.
+
+**Now available here: [panda.btcocode.com](http://panda.btcocode.com)**
 
 Copyright &copy; 2017 Bruno Oliveira - brunotc@gmail.com
 
 ![Title screen](https://github.com/btco/panda/blob/master/images/2x/title.png?raw=true)
 
-8 Bit Panda is a classic platformer: you can move, run, jump and get powerups.
-It has 17 levels distributed across 6 major areas (isles).
+8 Bit Panda is a classic platformer for the [TIC-80](http://tic.computer)
+fantasy console. You can move, run, jump and get powerups. It has 17 levels
+distributed across 6 major areas (isles).
 
 You can play it online here:
  * **[panda.btcocode.com](http://panda.btcocode.com)**
