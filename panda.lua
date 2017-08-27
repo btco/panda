@@ -3,11 +3,8 @@
 -- script: lua
 -- saveid: superpandagame
 
-DBG={
- -- whether to enable debug menu.
- ENABLED=true,
- LVL=13,
-}
+-- whether to enable debug menu
+DBG=true
 
 NAME="8-BIT PANDA"
 C=8
@@ -686,7 +683,7 @@ function UpdateMus()
 end
 
 function TIC()
- if DBG.ENABLED and btnp(6) then
+ if DBG and btnp(6) then
   Plr.dbg=true
  end
  if Plr.dbg then
@@ -3103,16 +3100,18 @@ function DbgTic()
   return
  end
 
+ Game.dbglvl=Game.dbglvl or 1
+
  if btnp(3) then
-  DBG.LVL=Iif(DBG.LVL+1>#LVL,1,DBG.LVL+1)
+  Game.dbglvl=Iif(Game.dbglvl+1>#LVL,1,Game.dbglvl+1)
  elseif btnp(2) then
-  DBG.LVL=Iif(DBG.LVL>1,DBG.LVL-1,#LVL)
+  Game.dbglvl=Iif(Game.dbglvl>1,Game.dbglvl-1,#LVL)
  end
 
  local menu={
   {t="(Close)",f=DbgClose},
   {t="Warp to test lvl",f=DbgWarpTest}, 
-  {t="Warp to L"..DBG.LVL,f=DbgWarp},
+  {t="Warp to L"..Game.dbglvl,f=DbgWarp},
   {t="End lvl",f=DbgEndLvl},
   {t="Grant super pwup",f=DbgSuper},
   {t="Fly mode "..
@@ -3121,8 +3120,8 @@ function DbgTic()
     Iif(Plr.invuln and Plr.invuln>0,
         "OFF","ON"),
     f=DbgInvuln},
-  {t="Unpack L"..DBG.LVL,f=DbgUnpack},
-  {t="Pack L"..DBG.LVL,f=DbgPack},
+  {t="Unpack L"..Game.dbglvl,f=DbgUnpack},
+  {t="Pack L"..Game.dbglvl,f=DbgPack},
   {t="Clear PMEM",f=DbgPmem},
   {t="Win the game",f=DbgWin}, 
   {t="Lose the game",f=DbgLose}, 
@@ -3132,7 +3131,7 @@ function DbgTic()
 
  rect(110,0,140,16,11)
  print("DBG LVL:",120,4,3)
- print(LVL[DBG.LVL].name,170,4)
+ print(LVL[Game.dbglvl].name,170,4)
 
  Plr.dbgSel=Plr.dbgSel or 1
  for i=1,#menu do
@@ -3162,7 +3161,7 @@ end
 function DbgPmem() pmem(0,0) end
 
 function DbgWarp()
- StartLvl(DBG.LVL)
+ StartLvl(Game.dbglvl)
 end
 
 function DbgWarpNext()
@@ -3174,18 +3173,18 @@ function DbgWarpTest()
 end
 
 function DbgUnpack()
- UnpackLvl(DBG.LVL,UMODE.EDIT)
+ UnpackLvl(Game.dbglvl,UMODE.EDIT)
  sync()
- Plr.dbgResp="Unpacked & synced L"..DBG.LVL
+ Plr.dbgResp="Unpacked & synced L"..Game.dbglvl
 end
 
 function DbgPack()
- local succ=PackLvl(DBG.LVL)
+ local succ=PackLvl(Game.dbglvl)
  --MapClear(0,0,LVL_LEN,ROWS)
  sync()
  Plr.dbgResp=Iif(succ,
-   "Packed & synced L"..DBG.LVL,
-   "** ERROR packing L"..DBG.LVL)
+   "Packed & synced L"..Game.dbglvl,
+   "** ERROR packing L"..Game.dbglvl)
 end
 
 function DbgFly()
