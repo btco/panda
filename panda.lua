@@ -1,7 +1,11 @@
+-- title:  8 Bit Panda
 -- author: Bruno Oliveira
 -- desc:   A panda platformer
 -- script: lua
--- saveid: superpandagame
+-- saveid: eightbitpanda
+--
+-- WARNING: this file must be kept under
+-- 64kB (TIC-80 limit)!
 
 -- whether to enable debug menu
 DBG=true
