@@ -1,7 +1,7 @@
 # 8 Bit Panda
 A retro-style panda platformer game.
 
-**Now available here: [panda.btcocode.com](http://panda.btcocode.com)**
+**UPDATE: You can now play it here: **[btcocode.com/panda](http://btcocode.com/panda)**
 
 Copyright &copy; 2017 Bruno Oliveira - brunotc@gmail.com
 
@@ -12,7 +12,7 @@ fantasy console. You can move, run, jump and get powerups. It has 17 levels
 distributed across 6 major areas (isles).
 
 You can play it online here:
- * **[panda.btcocode.com](http://panda.btcocode.com)**
+ * **[btcocode.com/panda](http://btcocode.com/panda)**
  * TIC-80 site (coming soon)
 
 ![World map screen](https://github.com/btco/panda/blob/master/images/2x/world.png?raw=true)
