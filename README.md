@@ -13,7 +13,8 @@ distributed across 6 major areas (isles).
 
 You can play it online here:
  * **[btcocode.com/panda](http://btcocode.com/panda)**
- * TIC-80 site (coming soon)
+ * [TIC-80 site](https://tic.computer/play?cart=188)
+ * [itch.io page](https://btco.itch.io/8-bit-panda)
 
 ![World map screen](https://github.com/btco/panda/blob/master/images/2x/world.png?raw=true)
 
