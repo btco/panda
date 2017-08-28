@@ -7,9 +7,6 @@
 -- WARNING: this file must be kept under
 -- 64kB (TIC-80 limit)!
 
--- whether to enable debug menu
-DBG=true
-
 NAME="8-BIT PANDA"
 C=8
 ROWS=17
@@ -687,15 +684,27 @@ function UpdateMus()
 end
 
 function TIC()
- if DBG and btnp(6) then
-  Plr.dbg=true
- end
+ CheckDbgMenu()
  if Plr.dbg then
   DbgTic()
   return
  end
  Game.t=Game.t+1
  TICF[Game.m]()
+end
+
+function CheckDbgMenu()
+ if not btn(6) then
+  Game.dbgkc=0
+  return
+ end
+ if btnp(0) then
+  Game.dbgkc=10+(Game.dbgkc or 0)
+ end
+ if btnp(1) then
+  Game.dbgkc=1+(Game.dbgkc or 0)
+ end
+ if Game.dbgkc==42 then Plr.dbg=true end
 end
 
 function Boot()
@@ -725,19 +734,18 @@ function TitleTic()
  map(m.c,m.r,30,17,0,0,0)
 
  spr(S.PLR.WALK1+(time()//128)%2,16,104,0)
- --rect(80,0,80,20,5)
  rect(0,0,240,24,5)
  print(NAME,88,10)
  rect(0,24,240,1,15)
  rect(0,26,240,1,5)
+ rect(0,SCRH-8,SCRW,8,0)
+ print("github.com/btco/panda",60,SCRH-7,7)
  
  if (time()//512)%2>0 then
-  print("- PRESS 'Z' TO START -",
-   65,84,15)
+  print("- PRESS 'Z' TO START -",65,84,15)
  end
 
  RendSpotFx(COLS//2,ROWS//2,Game.t)
- 
  if btnp(4) then
   SetMode(M.RESTORE)
  end

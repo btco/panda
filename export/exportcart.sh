@@ -4,13 +4,6 @@ if ! [ -f '../tic.exe' ]; then
   exit 1
 fi
 
-if grep -q 'DBG=true' panda.lua; then
- echo "*** WARNING: Debug is ENABLED on this build."
- echo -n "Is this really what you want? (y/N)"
- read ans
- [ "$ans" != "y" ] && exit 1
-fi
-
 echo "Creating export cartridge."
 cp -vf ../source/panda.tic panda-export.tic
 echo "Injecting LUA code."
