@@ -13,7 +13,7 @@ fi
 
 echo "Starting TIC."
 echo "Use 'load panda-dev' to load the cart."
-./tic.exe
+../tic.exe
 
 echo -n "Done editing cart? Copy it back to working dir? [Y/n] "
 read ans

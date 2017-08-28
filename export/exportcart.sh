@@ -22,7 +22,7 @@ echo "Call the file 'cartridge.html' and save to THIS DIRECTORY ($PWD)."
 echo "Press ENTER"
 read foo
 rm -vf panda.html
-../tic.exe panda-export.tic -code panda.lua 
+../tic.exe panda-export.tic -code ../source/panda.lua 
 
 if ! [ -f "cartridge.html" ]; then
  echo "*** cartridge.html not found."
