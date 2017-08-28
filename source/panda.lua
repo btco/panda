@@ -380,13 +380,13 @@ LVL={
   name="1-3",bg=2,
   pkstart=13,pklen=3,
   mus=BGM.C,
+  save=true,
  },
  {
   name="2-1",bg=1,
   palor={[8]=0x553838},
   pkstart=16,pklen=3,
   mus=BGM.A,
-  save=true,
  },
  {
   name="2-2",bg=0,
@@ -400,6 +400,7 @@ LVL={
   palor={[8]=0x553838},
   pkstart=21,pklen=3,
   mus=BGM.C,
+  save=true,
  },
  {
   name="3-1",bg=2,
@@ -407,7 +408,6 @@ LVL={
   pkstart=24,pklen=3,
   snow={clr=10},
   mus=BGM.A,
-  save=true,
  },
  {
   name="3-2",bg=0,
@@ -421,13 +421,13 @@ LVL={
   palor={[8]=0x7171ae},
   pkstart=29,pklen=3,
   mus=BGM.C,
+  save=true,
  },
  {
   name="4-1",bg=2,
   palor={[2]=0x443c14,[8]=0x504410},
   pkstart=32,pklen=3,
   mus=BGM.A,
-  save=true,
  },
  {
   name="4-2",bg=2,
@@ -440,34 +440,32 @@ LVL={
   palor={[2]=0x443c14,[8]=0x504410},
   pkstart=37,pklen=3,
   mus=BGM.C,
+  save=true,
  },
  {
   name="5-1",bg=1,
   palor={[8]=0x553838},
   pkstart=40,pklen=3,
   mus=BGM.A,
-  save=true,
  },
  {
   name="5-2",bg=1,
   palor={[8]=0x553838},
   pkstart=43,pklen=2,
   mus=BGM.B,
-  save=false,
  },
  {
   name="5-3",bg=1,
   palor={[8]=0x553838},
   pkstart=45,pklen=3,
   mus=BGM.C,
-  save=false,
+  save=true,
  },
  {
   name="6-1",bg=0,
   palor={[8]=0x303030},
   pkstart=48,pklen=3,
   mus=BGM.FINAL,
-  save=true,
   snow={clr=8},
  },
  {
@@ -475,7 +473,6 @@ LVL={
   palor={[8]=0x303030},
   pkstart=51,pklen=5,
   mus=BGM.FINAL,
-  save=false,
   snow={clr=8},
  },
 }
@@ -843,7 +840,7 @@ function EolTic()
   return
  end
  Rend()
- print("LEVEL CLEAR",80,20)
+ print("LEVEL CLEAR",85,20)
 end
 
 function DyingTic()
@@ -943,10 +940,6 @@ function StartLvl(lvlNo)
  GenSnow()
  ResetPal(Game.lvl.palor)
  AdjustRespawnPos()
- if Game.lvl.save then
-  pmem(0,Max(pmem(0) or 0,
-    Game.lvlNo))
- end
 end
 
 function AdjustRespawnPos()
@@ -1495,6 +1488,11 @@ function EndLvl()
 end
 
 function AdvanceLvl()
+ -- save game if we should
+ if Game.lvl.save then
+  pmem(0,Max(pmem(0) or 0,
+    Game.lvlNo+1))
+ end
  if Game.lvlNo>=#LVL then
   -- end of game.
   SetMode(M.WIN)
