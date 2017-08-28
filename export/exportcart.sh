@@ -1,6 +1,6 @@
 #!/bin/bash
-if ! [ -f './tic.exe' ]; then
-  echo "** TIC.EXE not found."
+if ! [ -f '../tic.exe' ]; then
+  echo "** ../TIC.EXE not found."
   exit 1
 fi
 
@@ -12,7 +12,7 @@ if grep -q 'DBG=true' panda.lua; then
 fi
 
 echo "Creating export cartridge."
-cp -vf panda.tic panda-export.tic
+cp -vf ../source/panda.tic panda-export.tic
 echo "Injecting LUA code."
 echo "panda-export.tic generated."
 echo
@@ -22,7 +22,7 @@ echo "Call the file 'cartridge.html' and save to THIS DIRECTORY ($PWD)."
 echo "Press ENTER"
 read foo
 rm -vf panda.html
-./tic.exe panda-export.tic -code panda.lua 
+../tic.exe panda-export.tic -code panda.lua 
 
 if ! [ -f "cartridge.html" ]; then
  echo "*** cartridge.html not found."
