@@ -18,22 +18,20 @@ echo "panda-export.tic generated."
 echo
 echo "ATTENTION"
 echo "We will now launch TIC. In TIC, use the EXPORT command to generate HTML."
-echo "Call the file panda.html and save to THIS DIRECTORY ($PWD)."
+echo "Call the file 'cartridge.html' and save to THIS DIRECTORY ($PWD)."
 echo "Press ENTER"
 read foo
 rm -vf panda.html
 ./tic.exe panda-export.tic -code panda.lua 
 
-if ! [ -f "panda.html" ]; then
- echo "*** panda.html not found."
+if ! [ -f "cartridge.html" ]; then
+ echo "*** cartridge.html not found."
  exit 1
 fi
 
-echo "Found panda.html."
+echo "Found cartridge.html."
 echo "Injecting our HTML snippets..."
-mv panda.html panda.in.html
-perl inject_html_snippets.pl <panda.in.html >panda.html
+perl inject_html_snippets.pl <cartridge.html >panda.html
 
-rm -vf panda.in.html
 echo "Generated panda.html."
 
