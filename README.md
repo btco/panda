@@ -5,6 +5,8 @@ A retro-style panda platformer game.
 
 Copyright &copy; 2017 Bruno Oliveira - brunotc@gmail.com
 
+Follow me on Twitter: [@btco_code](http://twitter.com/btco_code)
+
 ![Title screen](https://github.com/btco/panda/blob/master/images/2x/title.png?raw=true)
 
 8 Bit Panda is a classic platformer for the [TIC-80](http://tic.computer)
