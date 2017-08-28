@@ -39,7 +39,7 @@ using the TIC-80 editor, including music.
 
 This software is distributed under the Apache License, version 2.0.
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright (c) 2017 Bruno Oliveira
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
