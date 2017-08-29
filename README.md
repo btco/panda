@@ -38,6 +38,8 @@ enemies:
 The source code is written in LUA and the game art was entirely created
 using the TIC-80 editor, including music.
 
+If you'd like to know more details about how the game works and the development process, [this article](https://medium.com/@btco_code/writing-a-platformer-for-the-tic-80-virtual-console-6fa737abe476) may interest you.
+
 # License
 
 This software is distributed under the Apache License, version 2.0.
