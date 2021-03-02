@@ -3353,14 +3353,14 @@ function FetchEntTag(e)
  end
 end
 
-function Max(x,y) return math.max(x,y) end
-function Min(x,y) return math.min(x,y) end
-function Abs(x,y) return math.abs(x,y) end
-function Rnd(lo,hi) return math.random(lo,hi) end
-function Rnd01() return math.random() end
-function RndSeed(s) return math.randomseed(s) end
-function Ins(tbl,e) return table.insert(tbl,e) end
-function Rem(tbl,e) return table.remove(tbl,e) end
-function Sin(a) return math.sin(a) end
-function Cos(a) return math.cos(a) end
-
+-- aliases
+Max = math.max
+Min = math.min
+Abs = math.abs
+Rnd = math.random
+Rnd01 = math.random
+RndSeed = math.randomseed
+Ins = table.insert
+Rem = table.remove
+Sin = math.sin
+Cos = math.cos
